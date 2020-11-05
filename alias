@@ -1,0 +1,10 @@
+alias pandacr = docker-compose run web rake db:create 
+alias pandaseed = docker-compose run web rake db:seed
+alias pandad = docker-compose run web rake db:drop 
+alias pandas = docker-compose run web rails server
+alias pandac = docker-compose run web rails console
+alias pandam = docker-compose run web db:migrate
+alias pandarollback = docker-compose run web db:rollback
+alias pandagm = docker-compose run web rails generate migration
+alias pandagmo = docker-compose run web rails generate model
+alias pandagc = docker-compose run web rails generate controller
