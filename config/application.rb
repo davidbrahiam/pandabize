@@ -30,6 +30,8 @@ module Pandabize
     # the framework and any gems in your application.
 
     # Don't generate system test files.
+    config.generators.stylesheets = false
+    config.generators.javascripts = false
     config.generators.system_tests = nil
   end
 end
