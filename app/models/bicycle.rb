@@ -2,6 +2,15 @@ class Bicycle < ApplicationRecord
   has_many :products
   has_many :operations, through: :products
 
+  validates :name, presence: true
+  validates :mark, presence: true
+  validates :wheel_size, presence: true, numericality: {  greater_than: 0 }
+  validates :price, presence: true, numericality: {  greater_than: 0 }
+  validates :saddle_color, presence: true
+  validates :rim_color, presence: true
+  
+  validates :total_available, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+
   scope :unique_field, -> (t) { distinct.pluck(t)}
   
   # scope :bike_properties, -> (t) {

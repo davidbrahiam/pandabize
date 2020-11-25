@@ -5,6 +5,9 @@ import SignUp from '../Auth/SignUp'
 import NavPage from './NavPage'
 import EditUser from '../User/Edit'
 import axios from 'axios'
+import Index from './Index';
+import Bicycle from '../Bicycle/Bicycle';
+import Customize from '../Bicycle/Customize';
 
 const Home = (props) => {
   const [toggleSignUpLogin, setToggleSignUpLogin] = useState(false)
@@ -117,10 +120,14 @@ const Home = (props) => {
 
   const switchPage = (value) => {
     switch (value) {
-      case "editUser":
+      case "EditUser":
         return <EditUser newUser={editUser} handleChange={handleEditUserChange} handlePage={changePage} handleUpdateUser={handleUpdateUser} />
+      case "Customize":
+        return <Customize handlePage={changePage} />
+      case "Bicycle":
+        return <Bicycle />
       default:
-        return <div>No user</div>
+        return <Index />
     }
   }
 
@@ -144,7 +151,7 @@ const Home = (props) => {
     } else {
       return (
         <React.Fragment>
-          <NavPage logOut={handleLogOut} handlePage={changePage}></NavPage>
+          <NavPage logOut={handleLogOut} handlePage={changePage} user={user}></NavPage>
           {switchPage(page)}
         </React.Fragment>
       )

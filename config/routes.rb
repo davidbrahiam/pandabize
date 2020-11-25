@@ -13,7 +13,8 @@ Rails.application.routes.draw do
       resources :products
       resources :bicycles
 
-      get 'bicycles_query', to: 'bicycles#build_query'
+      post 'bicycles_query', to: 'bicycles#build_query'
+      post 'operations', to: 'operations#create'
     end
   end
 

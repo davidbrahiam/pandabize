@@ -20,10 +20,10 @@ ActiveRecord::Schema.define(version: 2020_11_22_110524) do
     t.string "mark", null: false
     t.float "price", null: false
     t.integer "total_available", default: 0
-    t.integer "total_sold", default: 0
     t.integer "wheel_size", null: false
     t.string "rim_color", null: false
     t.string "saddle_color", null: false
+    t.text "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

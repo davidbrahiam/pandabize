@@ -1,24 +1,83 @@
-# README
+# Pandabize Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Initialization
 
-Things you may want to cover:
+Install [brew](https://brew.sh/) manager
 
-* Ruby version
+Install ruby
 
-* System dependencies
+```
+brew install ruby
+```
 
-* Configuration
+Install yarn
 
-* Database creation
+```
+brew install yarn
+```
 
-* Database initialization
+Install postgresql
 
-* How to run the test suite
+```
+brew install postgres
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Clone this repo in your env
 
-* Deployment instructions
+```
+git clone https://github.com/davidbrahiam/pandabize.git
+```
 
-* ...
+Move to pandabize dir
+
+```
+cd pandabize
+```
+
+Run Bundle install
+
+```
+bundle install
+```
+
+Run Yarn install
+```
+yarn install
+```
+
+Create the Database
+
+```
+rails db:create
+```
+
+Run Migrations
+
+```
+rails db:migrate
+```
+
+## Optional Step
+
+Run seeds so you can get already an user and some bikes
+
+```
+rails db:seed
+```
+
+Now you have this user available to use
+
+```
+email: admin@gmail.com
+pasword: admins
+```
+
+## Run Project
+
+Run rails server
+
+```
+rails server
+```
+
+Go to `http://localhost:3009/`

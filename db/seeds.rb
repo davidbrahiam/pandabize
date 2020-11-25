@@ -19,5 +19,5 @@ marks = ["bike", "Mountain Bike", "others", "pandabize"]
 names = ["Heigher DX", "Mountain AD", "BMX", "Crazy Bike"]
 
 20.times do |t|
-  Bicycle.create([{mark: marks.sample, name: names.sample, wheel_size: wheel_size.sample, price: prices.sample, saddle_color: colors.sample, rim_color: colors.sample, total_available: t, total_sold: 0}])
+  Bicycle.create([{mark: marks.sample, name: names.sample, wheel_size: wheel_size.sample, price: prices.sample, saddle_color: colors.sample, rim_color: colors.sample, total_available: t}])
 end

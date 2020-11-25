@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from 'axios'
 import {
   MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBDropdown,
   MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon
@@ -12,8 +11,16 @@ const NavbarPage = (props) => {
   const toggleCollapse = () => {
     setState({ isOpen: !state.isOpen });
   }
-  const changePage = () => {
-    props.handlePage("editUser")
+  const changePage = (page) => {
+    props.handlePage(page)
+  }
+
+  const isAdmin = (role) => {
+    if (role == "admin") return (
+      <MDBNavItem>
+        < MDBNavLink to="#!" onClick={() => changePage("Bicycle")}>Bicycle</MDBNavLink>
+      </MDBNavItem>
+    )
   }
 
   return (
@@ -26,26 +33,29 @@ const NavbarPage = (props) => {
         <MDBCollapse id="navbarCollapse3" isOpen={state.isOpen} navbar>
           <MDBNavbarNav left>
             <MDBNavItem active>
-              <MDBNavLink to="#!">Home</MDBNavLink>
+              <MDBNavLink to="#!" onClick={() => changePage("Home")}>Home</MDBNavLink>
             </MDBNavItem>
-
+            <MDBNavItem>
+              <MDBNavLink to="#!" onClick={() => changePage("Customize")}>Customize</MDBNavLink>
+            </MDBNavItem>
+            {isAdmin(props.user.role)}
           </MDBNavbarNav>
           <MDBNavbarNav right>
             <MDBNavItem>
               <MDBDropdown>
-                <MDBDropdownToggle nav caret left>
+                <MDBDropdownToggle nav caret>
                   <MDBIcon icon="user" />
                 </MDBDropdownToggle>
                 <MDBDropdownMenu className="dropdown-default" right>
-                  <MDBDropdownItem href="#!" onClick={changePage}>Edit User</MDBDropdownItem>
-                  <MDBDropdownItem href="#!" onClick={props.logOut}>Log Out</MDBDropdownItem>
+                  <MDBDropdownItem href="#!" onClick={() => changePage("EditUser")}>Edit User</MDBDropdownItem>
+                  <MDBDropdownItem href="#!" onClick={() => props.logOut}>Log Out</MDBDropdownItem>
                 </MDBDropdownMenu>
               </MDBDropdown>
             </MDBNavItem>
           </MDBNavbarNav>
         </MDBCollapse>
       </MDBNavbar>
-    </Router>
+    </Router >
   );
 }
 
